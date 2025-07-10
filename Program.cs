@@ -1,18 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 
 class Program
 {
     // tady jsou ruzne proměnné ktere se používají v programu
-    static int xCoordinate = 0;
-    static int yCoordinate = 0;
-    static int[] coordinates = { xCoordinate, yCoordinate }; //souřadnice hráče
+    static int xPlayerCoordinate = 0;
+    static int yPlayerCoordinate = 0;
+    static int[] coordinatesP = { xPlayerCoordinate, yPlayerCoordinate }; //souřadnice hráče
     static List<string> Menu = new List<string> { "Movement", "Stats", "Inventory", "Exit game" }; //Listy
     static List<string> MovementMenu = new List<string> { "Up", "Down", "Left", "Right", "-" };
     static List<string> statNames = new List<string> { "HP", "ATK", "DEF", "EXP", "LV" }; //staty hráče
     static List<int> Stats = new List<int> { 20, 1, 1, 0, 1 };
 
-    
+
 
     static void Main(string[] args) //zahajeni
     {
@@ -72,27 +73,27 @@ class Program
         }
     }
 
-static void MovementMenuBoot()
-{
-    coordinates[0] = xCoordinate;
-    coordinates[1] = yCoordinate;
-
-    Console.WriteLine();
-    Console.WriteLine("Movement Menu:");
-
-    Console.WriteLine($"Current coordinates: ({coordinates[0]}, {coordinates[1]})");
-    Console.WriteLine();
-
-    Console.WriteLine();
-
-    int i2 = 1;
-    foreach (string Movement in MovementMenu)
+    static void MovementMenuBoot()
     {
-        Console.WriteLine("[" + i2 + "] " + Movement);
-        i2++;
-    }
-    string x = Console.ReadLine();
-    bool ok = int.TryParse(x, out int xcislo);
+        coordinatesP[0] = xPlayerCoordinate;
+        coordinatesP[1] = yPlayerCoordinate;
+
+        Console.WriteLine();
+        Console.WriteLine("Movement Menu:");
+
+        Console.WriteLine($"Current coordinates: ({coordinatesP[0]}, {coordinatesP[1]})");
+        Console.WriteLine();
+
+        Console.WriteLine();
+
+        int i2 = 1;
+        foreach (string Movement in MovementMenu)
+        {
+            Console.WriteLine("[" + i2 + "] " + Movement);
+            i2++;
+        }
+        string x = Console.ReadLine();
+        bool ok = int.TryParse(x, out int xcislo);
 
         if (ok && xcislo >= 1 && xcislo <= MovementMenu.Count)
         {
@@ -103,16 +104,16 @@ static void MovementMenuBoot()
             switch (MovementMenu[xcislo - 1])
             {
                 case "Up":
-                    yCoordinate++;
+                    yPlayerCoordinate++;
                     break;
                 case "Down":
-                    yCoordinate--;
+                    yPlayerCoordinate--;
                     break;
                 case "Left":
-                    xCoordinate--;
+                    xPlayerCoordinate--;
                     break;
                 case "Right":
-                    xCoordinate++;
+                    xPlayerCoordinate++;
                     break;
                 case "-":
                     Console.WriteLine("Returning to main menu");
@@ -128,31 +129,40 @@ static void MovementMenuBoot()
 
 
             Console.WriteLine("You moved successfully.");
-            Console.WriteLine($"New coordinates: ({xCoordinate}, {yCoordinate})");
+            Console.WriteLine($"New coordinates: ({xPlayerCoordinate}, {yPlayerCoordinate})");
             Console.WriteLine();
 
             MovementMenuBoot(); // Return to movement menu after moving
-    }
+        }
         else
         {
             Console.WriteLine("Invalid input, try again");
             MovementMenuBoot();
             return;
         }
-}
+    }
 
-static void ShowStats() //show stats metoda
-{
-    Console.WriteLine();
+    static void ShowStats() //show stats metoda
+    {
+        Console.WriteLine();
 
-    Console.WriteLine("Player Stats:");
+        Console.WriteLine("Player Stats:");
         for (int i = 0; i < Stats.Count; i++)
         {
             Console.WriteLine($"{statNames[i]}: {Stats[i]}");
         }
-    Console.WriteLine();
-    MenuBoot();
-}
+        Console.WriteLine();
+        MenuBoot();
+    }
+
+    static void NewDiscoveredRoom(int xCoordinate, int yCoordinate) // This method is called when a new room is discovered at the given coordinates.
+    {
+        Console.WriteLine();
+        Console.WriteLine($"New room discovered at coordinates: ({xCoordinate}, {yCoordinate})");
+        Console.WriteLine();
+        //Console.WriteLine($"Room Type: {GetRoomType(xCoordinate, yCoordinate)}");
+    }
 
 
-}
+
+} 

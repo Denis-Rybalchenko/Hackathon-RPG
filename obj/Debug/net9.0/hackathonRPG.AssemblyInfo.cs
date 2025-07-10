@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("hackathonRPG")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7de89e3449c35cfb3a4aaff2e726fef0e7a37180")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+635f5f02a1ad64f0af447ad4e2c0fbfd86d3b596")]
 [assembly: System.Reflection.AssemblyProductAttribute("hackathonRPG")]
 [assembly: System.Reflection.AssemblyTitleAttribute("hackathonRPG")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
