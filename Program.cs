@@ -127,8 +127,6 @@ static void MovementMenuBoot()
 
 
 
-            // Here you can add logic to handle encounters or events based on the new coordinates
-            // For example, you could check if the player has reached a specific coordinate and trigger an event.
             Console.WriteLine("You moved successfully.");
             Console.WriteLine($"New coordinates: ({xCoordinate}, {yCoordinate})");
             Console.WriteLine();
