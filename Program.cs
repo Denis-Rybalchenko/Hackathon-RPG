@@ -3,9 +3,10 @@ using System.Collections.Generic;
 
 class Program
 {
+    // tady jsou ruzne proměnné ktere se používají v programu
     static int xCoordinate = 0;
     static int yCoordinate = 0;
-    static int[] coordinates = { xCoordinate, yCoordinate };//souřadnice hráče
+    static int[] coordinates = { xCoordinate, yCoordinate }; //souřadnice hráče
     static List<string> Menu = new List<string> { "Movement", "Stats", "Inventory", "Exit game" }; //Listy
     static List<string> MovementMenu = new List<string> { "Up", "Down", "Left", "Right", "-" };
     static List<string> statNames = new List<string> { "HP", "ATK", "DEF", "EXP", "LV" }; //staty hráče
@@ -24,6 +25,8 @@ class Program
 
     static void MenuBoot() //menu metoda
     {
+        Console.WriteLine("Main Menu:");
+        Console.WriteLine();
         int i1 = 1;
         foreach (string action in Menu)
         {
@@ -54,12 +57,12 @@ class Program
                 case 4:
                     Console.WriteLine();
                     Console.WriteLine("Exiting game...");
-                    break;
+                    return; //ukončení hry
                 default:
                     Console.WriteLine();
                     Console.WriteLine("Invalid choice. Try again.");
                     MenuBoot();
-                    break;
+                    return;
             }
         }
         else
@@ -71,7 +74,17 @@ class Program
 
 static void MovementMenuBoot()
 {
+    coordinates[0] = xCoordinate;
+    coordinates[1] = yCoordinate;
+
     Console.WriteLine();
+    Console.WriteLine("Movement Menu:");
+
+    Console.WriteLine($"Current coordinates: ({coordinates[0]}, {coordinates[1]})");
+    Console.WriteLine();
+
+    Console.WriteLine();
+
     int i2 = 1;
     foreach (string Movement in MovementMenu)
     {
@@ -102,25 +115,25 @@ static void MovementMenuBoot()
                     xCoordinate++;
                     break;
                 case "-":
-                    Console.WriteLine("Returning to main menu...");
+                    Console.WriteLine("Returning to main menu");
+                    Console.WriteLine();
                     MenuBoot();
                     return;
                 default:
                     Console.WriteLine("Invalid movement choice.");
                     MovementMenuBoot();
-                    return;
+                    break;
             }
 
-            coordinates[0] = xCoordinate;
-            coordinates[1] = yCoordinate;
 
-            Console.WriteLine($"Current coordinates: ({coordinates[0]}, {coordinates[1]})");
-            Console.WriteLine();
 
             // Here you can add logic to handle encounters or events based on the new coordinates
             // For example, you could check if the player has reached a specific coordinate and trigger an event.
-            Console.WriteLine("Returning to main menu...");
-            MenuBoot();
+            Console.WriteLine("You moved successfully.");
+            Console.WriteLine($"New coordinates: ({xCoordinate}, {yCoordinate})");
+            Console.WriteLine();
+
+            MovementMenuBoot(); // Return to movement menu after moving
     }
         else
         {
@@ -128,8 +141,6 @@ static void MovementMenuBoot()
             MovementMenuBoot();
             return;
         }
-
-    MenuBoot();
 }
 
 static void ShowStats() //show stats metoda
