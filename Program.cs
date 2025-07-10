@@ -3,11 +3,11 @@ using System.Collections.Generic;
 
 class Program
 {
-    static List<string> Menu = new List<string> { "Movement", "Stats", "Inventory", "Exit game" };
-    static List<string> MovementMenu = new List<string> { "Up", "Down", "Left", "Right" };
+    static List<string> Menu = new List<string> { "Movement", "Stats", "Inventory", "Exit game" }; //Listy
+    static List<string> MovementMenu = new List<string> { "Up", "Down", "Left", "Right", "-" };
     static List<int> Stats = new List<int> {20, 1, 1, 0, 1};
 
-    static void Main(string[] args)
+    static void Main(string[] args) //zahajeni
     {
         Console.WriteLine();
         Console.WriteLine("Welcome to Command Line RPG.");
@@ -16,7 +16,7 @@ class Program
         MenuBoot();
     }
 
-    static void MenuBoot()
+    static void MenuBoot() //menu metoda
     {
         int i1 = 1;
         foreach (string action in Menu)
@@ -47,9 +47,11 @@ class Program
                     MenuBoot();
                     break;
                 case 4:
+                    Console.WriteLine();
                     Console.WriteLine("Exiting game...");
                     break;
                 default:
+                    Console.WriteLine();
                     Console.WriteLine("Invalid choice. Try again.");
                     MenuBoot();
                     break;
@@ -62,33 +64,38 @@ class Program
         }
     }
 
-    static void MovementMenuBoot()
+static void MovementMenuBoot()
+{
+    Console.WriteLine();
+    int i2 = 1;
+    foreach (string Movement in MovementMenu)
+    {
+        Console.WriteLine("[" + i2 + "] " + Movement);
+        i2++;
+    }
+    string x = Console.ReadLine();
+    bool ok = int.TryParse(x, out int xcislo);
+
+    if (ok && xcislo >= 1 && xcislo <= MovementMenu.Count)
     {
         Console.WriteLine();
-        int i2 = 1;
-        foreach (string Movement in MovementMenu)
-        {
-            Console.WriteLine("[" + i2 + "] " + Movement);
-            i2++;
-        }
-        string x = Console.ReadLine();
-        bool ok = int.TryParse(x, out int xcislo);
-        if (ok)
-        {
-            Console.WriteLine($"You chose to move: {MovementMenu[xcislo - 1]}");
-            Console.WriteLine();
-        }
-        else
-        {
-            Console.WriteLine();
-            Console.WriteLine("Invalid input, try again");
-            MovementMenuBoot();
-        }
-
-        MenuBoot();
+        Console.WriteLine($"You chose to move: {MovementMenu[xcislo - 1]}");
+        Console.WriteLine();
     }
-static void ShowStats()
+    else
+    {
+        Console.WriteLine("Invalid input, try again");
+        MovementMenuBoot();
+        return;
+    }
+
+    MenuBoot();
+}
+
+static void ShowStats() //show stats metoda
 {
+    Console.WriteLine();
+
     string[] statNames = { "HP", "ATK", "DEF", "EXP", "LV" };
     for (int i = 0; i < Stats.Count; i++)
     {
