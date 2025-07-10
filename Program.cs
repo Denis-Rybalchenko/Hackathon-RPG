@@ -7,7 +7,7 @@ Console.WriteLine();
 bool menuBoot = true;
 
 
-while (menuBoot == true)
+while (MenuBoot == true)
 {
     int i = 1;
     foreach (string action in Menu)
@@ -16,8 +16,16 @@ while (menuBoot == true)
        i++;
    }
 
-menuBoot = false;
+MenuBoot = false;
 Console.WriteLine();
+
+
+
+while (MovementMenuBoot == true)
+
+
+
+
 
 
 string UserChoice = Console.ReadLine();
