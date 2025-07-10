@@ -1,90 +1,101 @@
-﻿Console.WriteLine();
-Console.WriteLine("Welcome to Command Line RPG.");
-Console.WriteLine();
+﻿using System;
+using System.Collections.Generic;
 
-List<int> Stats = new List<int> {20, 1, 1, 0, 1};
-
-//int HP = 20;
-//int ATK = 1;
-//int DEF = 1;
-//int EXP = 0;
-//int LV = 1;
-
-static void MenuBoot()
+class Program
 {
-    List<string> Menu = new List<string> {"Movement","Stats", "Inventory", "Exit game"};
-    int i1 = 1;
-    foreach (string action in Menu)
-   {
-       Console.WriteLine("[" + i1 + "]" + " " + action);
-       i1++;
-   }
-Console.WriteLine();
+    static List<string> Menu = new List<string> { "Movement", "Stats", "Inventory", "Exit game" };
+    static List<string> MovementMenu = new List<string> { "Up", "Down", "Left", "Right" };
+    static List<int> Stats = new List<int> {20, 1, 1, 0, 1};
 
-string UserChoice = Console.ReadLine();
+    static void Main(string[] args)
+    {
+        Console.WriteLine();
+        Console.WriteLine("Welcome to Command Line RPG.");
+        Console.WriteLine();
 
-bool test = int.TryParse(UserChoice, out int actionChoice);
+        MenuBoot();
+    }
 
-if (test == true)
-{
-switch (actionChoice)
-{
-    case 1:
-        MovementMenuBoot();
-        break;
-    case 2:
-        foreach (int stat in Stats)
+    static void MenuBoot()
+    {
+        int i1 = 1;
+        foreach (string action in Menu)
         {
-            Console.WriteLine(stat, ": ")
+            Console.WriteLine("[" + i1 + "] " + action);
+            i1++;
         }
-        break;
-    case 3:
-        
-        break;
-    case 4:
-        
-        break;
-    default:
-        break;
-}
 
+        Console.WriteLine();
+        string UserChoice = Console.ReadLine();
 
-}
-else
+        bool test = int.TryParse(UserChoice, out int actionChoice);
+
+        if (test)
+        {
+            switch (actionChoice)
+            {
+                case 1:
+                    MovementMenuBoot();
+                    break;
+                case 2:
+                    ShowStats();
+                    MenuBoot();
+                    break;
+                case 3:
+                    Console.WriteLine("Inventory is currently empty.");
+                    Console.WriteLine();
+                    MenuBoot();
+                    break;
+                case 4:
+                    Console.WriteLine("Exiting game...");
+                    break;
+                default:
+                    Console.WriteLine("Invalid choice. Try again.");
+                    MenuBoot();
+                    break;
+            }
+        }
+        else
+        {
+            Console.WriteLine("Invalid input, try again");
+            MenuBoot();
+        }
+    }
+
+    static void MovementMenuBoot()
+    {
+        Console.WriteLine();
+        int i2 = 1;
+        foreach (string Movement in MovementMenu)
+        {
+            Console.WriteLine("[" + i2 + "] " + Movement);
+            i2++;
+        }
+        string x = Console.ReadLine();
+        bool ok = int.TryParse(x, out int xcislo);
+        if (ok)
+        {
+            Console.WriteLine($"You chose to move: {MovementMenu[xcislo - 1]}");
+            Console.WriteLine();
+        }
+        else
+        {
+            Console.WriteLine();
+            Console.WriteLine("Invalid input, try again");
+            MovementMenuBoot();
+        }
+
+        MenuBoot();
+    }
+static void ShowStats()
 {
-    Console.WriteLine("Invalid input try again");
-    MenuBoot();
-}
-
-
-}
-
-static void MovementMenuBoot()
-{
-    List<string> MovementMenu = new List<string> {"Up", "Down", "Left", "Right"};
+    string[] statNames = { "HP", "ATK", "DEF", "EXP", "LV" };
+    for (int i = 0; i < Stats.Count; i++)
+    {
+        Console.WriteLine($"{statNames[i]}: {Stats[i]}");
+    }
     Console.WriteLine();
-    int i2 = 1;
-    foreach (string Movement in MovementMenu)
-   {
-       Console.WriteLine("[" + i2 + "]" + " " + Movement);
-       i2++;
-   }
-   string x = Console.ReadLine();
-   Console.WriteLine();
-   
-   MenuBoot();
 }
 
-MenuBoot();
 
-
-
-    //static int StatsMenuBoot(int HP,int ATK,int DEF,int LV)
-    //{
-    //    Console.WriteLine($"HP = {HP} ");
-    //    Console.WriteLine($"ATK = {ATK}");
-    //    Console.WriteLine($"DEF = {DEF}");
-    //    Console.WriteLine($"LV = {LV}");
-    //    MenuBoot();
-    //    
-    //}
+}

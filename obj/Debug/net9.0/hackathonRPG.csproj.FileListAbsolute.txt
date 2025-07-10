@@ -1,0 +1,15 @@
+/Users/denisrybalchenko/Hackathon-RPG/bin/Debug/net9.0/hackathonRPG
+/Users/denisrybalchenko/Hackathon-RPG/bin/Debug/net9.0/hackathonRPG.deps.json
+/Users/denisrybalchenko/Hackathon-RPG/bin/Debug/net9.0/hackathonRPG.runtimeconfig.json
+/Users/denisrybalchenko/Hackathon-RPG/bin/Debug/net9.0/hackathonRPG.dll
+/Users/denisrybalchenko/Hackathon-RPG/bin/Debug/net9.0/hackathonRPG.pdb
+/Users/denisrybalchenko/Hackathon-RPG/obj/Debug/net9.0/hackathonRPG.GeneratedMSBuildEditorConfig.editorconfig
+/Users/denisrybalchenko/Hackathon-RPG/obj/Debug/net9.0/hackathonRPG.AssemblyInfoInputs.cache
+/Users/denisrybalchenko/Hackathon-RPG/obj/Debug/net9.0/hackathonRPG.AssemblyInfo.cs
+/Users/denisrybalchenko/Hackathon-RPG/obj/Debug/net9.0/hackathonRPG.csproj.CoreCompileInputs.cache
+/Users/denisrybalchenko/Hackathon-RPG/obj/Debug/net9.0/hackathonRPG.sourcelink.json
+/Users/denisrybalchenko/Hackathon-RPG/obj/Debug/net9.0/hackathonRPG.dll
+/Users/denisrybalchenko/Hackathon-RPG/obj/Debug/net9.0/refint/hackathonRPG.dll
+/Users/denisrybalchenko/Hackathon-RPG/obj/Debug/net9.0/hackathonRPG.pdb
+/Users/denisrybalchenko/Hackathon-RPG/obj/Debug/net9.0/hackathonRPG.genruntimeconfig.cache
+/Users/denisrybalchenko/Hackathon-RPG/obj/Debug/net9.0/ref/hackathonRPG.dll
