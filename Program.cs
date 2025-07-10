@@ -1,2 +1,3 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿List<string> Menu = new List<string> {"Movement","Stats", "Inventory"},
+
+Console.WriteLine("Welcome to Command Line RPG.");
