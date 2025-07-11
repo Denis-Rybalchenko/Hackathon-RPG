@@ -34,3 +34,10 @@ C:\Users\navsteva\hackathonRPG\obj\Debug\net7.0\hackathonRPG.csproj.CoreCompileI
 C:\Users\navsteva\hackathonRPG\obj\Debug\net7.0\hackathonRPG.dll
 C:\Users\navsteva\hackathonRPG\obj\Debug\net7.0\refint\hackathonRPG.dll
 C:\Users\navsteva\hackathonRPG\obj\Debug\net7.0\hackathonRPG.pdb
+C:\Users\navsteva\hackathonRPG\bin\Debug\net7.0\hackathonRPG.exe
+C:\Users\navsteva\hackathonRPG\bin\Debug\net7.0\hackathonRPG.deps.json
+C:\Users\navsteva\hackathonRPG\bin\Debug\net7.0\hackathonRPG.runtimeconfig.json
+C:\Users\navsteva\hackathonRPG\bin\Debug\net7.0\hackathonRPG.dll
+C:\Users\navsteva\hackathonRPG\bin\Debug\net7.0\hackathonRPG.pdb
+C:\Users\navsteva\hackathonRPG\obj\Debug\net7.0\hackathonRPG.genruntimeconfig.cache
+C:\Users\navsteva\hackathonRPG\obj\Debug\net7.0\ref\hackathonRPG.dll
