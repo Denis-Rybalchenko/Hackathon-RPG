@@ -12,6 +12,7 @@ class Program
     static List<string> MovementMenu = new List<string> { "Up", "Down", "Left", "Right", "-" };
     static List<string> statNames = new List<string> { "HP", "ATK", "DEF", "EXP", "LV" }; //staty hráče
     static List<int> Stats = new List<int> { 20, 1, 1, 0, 1 };
+    static List<string> DiscoveredRooms = new List<string>($"(0; 0)"); //seznam objevených místností
 
 
 
@@ -132,6 +133,8 @@ class Program
             Console.WriteLine($"New coordinates: ({xPlayerCoordinate}, {yPlayerCoordinate})");
             Console.WriteLine();
 
+            NewDiscoveredRoomCheck(xPlayerCoordinate, yPlayerCoordinate); // Check if a new room is discovered at the new coordinates
+
             MovementMenuBoot(); // Return to movement menu after moving
         }
         else
@@ -155,14 +158,67 @@ class Program
         MenuBoot();
     }
 
-    static void NewDiscoveredRoom(int xCoordinate, int yCoordinate) // This method is called when a new room is discovered at the given coordinates.
+
+
+
+
+
+
+static void NewDiscoveredRoomCheck(int xCoordinate, int yCoordinate)
     {
-        Console.WriteLine();
-        Console.WriteLine($"New room discovered at coordinates: ({xCoordinate}, {yCoordinate})");
-        Console.WriteLine();
-        //Console.WriteLine($"Room Type: {GetRoomType(xCoordinate, yCoordinate)}");
+        string newRoom = $"({xCoordinate}, {yCoordinate})";
+        if (!DiscoveredRooms.Contains(newRoom))
+        {
+            Console.WriteLine($"You are already in the room at coordinates: {newRoom}");
+
+        }
+        else
+        {            // If the room is not already discovered, add it to the list
+            DiscoveredRooms.Add(newRoom);
+            Console.WriteLine($"New room discovered at coordinates: {newRoom}");
+        }
     }
+}
 
-
-
-} 
+//static void BattleBoot() //battle metode
+//    {
+//        string[] options = { "rock", "paper", "scissors" };
+//        Random random = new Random();
+//
+//        Console.WriteLine("An enemy has appeared!");
+//        Console.Write("What will you choose (rock/paper/scissors)? ");
+//        string userChoice = Console.ReadLine().ToLower();
+//
+//        // Ověření vstupu
+//        if (!Array.Exists(options, option => option == userChoice))
+//        {
+//            Console.WriteLine("Invalid choice.");
+//            return;
+//        }
+//
+//        string enemyChoice = options[random.Next(options.Length)];
+//        Console.WriteLine($"Enemy chose: {enemyChoice}");
+//
+//        // Určení výsledku
+//        if (userChoice == enemyChoice)
+//        {
+//            Console.WriteLine("Tie!");
+//        }
+//        else if (
+//            (userChoice == "rock" && enemyChoice == "scissors")
+//            (userChoice == "paper" && enemyChoice == "rock")
+//            (userChoice == "scissors" && enemyChoice == "paper")
+//
+//        )
+//        {
+//            Console.WriteLine("You won! You gain 10 EXP.");
+//            Stats[3] += 10; // zisk zkušeností při výhře
+//        }
+//        else
+//        {
+//            Console.WriteLine("You lost!");
+//            Stats[0] -= 5 / Stats[2]; // ztráta zdraví při prohře
+//        }
+//        Console.WriteLine();
+//        MenuBoot();
+//    }

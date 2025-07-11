@@ -27,3 +27,10 @@ C:/Users/navsteva/hackathonRPG/obj/Debug/net7.0/ref/hackathonRPG.dll
 /Users/denisrybalchenko/Hackathon-RPG/bin/Debug/net7.0/hackathonRPG.pdb
 /Users/denisrybalchenko/Hackathon-RPG/obj/Debug/net7.0/hackathonRPG.genruntimeconfig.cache
 /Users/denisrybalchenko/Hackathon-RPG/obj/Debug/net7.0/ref/hackathonRPG.dll
+C:\Users\navsteva\hackathonRPG\obj\Debug\net7.0\hackathonRPG.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\navsteva\hackathonRPG\obj\Debug\net7.0\hackathonRPG.AssemblyInfoInputs.cache
+C:\Users\navsteva\hackathonRPG\obj\Debug\net7.0\hackathonRPG.AssemblyInfo.cs
+C:\Users\navsteva\hackathonRPG\obj\Debug\net7.0\hackathonRPG.csproj.CoreCompileInputs.cache
+C:\Users\navsteva\hackathonRPG\obj\Debug\net7.0\hackathonRPG.dll
+C:\Users\navsteva\hackathonRPG\obj\Debug\net7.0\refint\hackathonRPG.dll
+C:\Users\navsteva\hackathonRPG\obj\Debug\net7.0\hackathonRPG.pdb
