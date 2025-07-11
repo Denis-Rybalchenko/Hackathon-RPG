@@ -12,6 +12,7 @@ class Program
     static List<string> statNames = new List<string> { "HP", "ATK", "DEF", "EXP", "LV" };
     static List<int> Stats = new List<int> { 20, 1, 1, 0, 1 };
     static List<string> DiscoveredRooms = new List<string> { "(0; 0)" };
+    static bool exitGame = false;
 
     static void Main(string[] args)
     {
@@ -56,6 +57,8 @@ class Program
                 case 4:
                     Console.WriteLine();
                     Console.WriteLine("Exiting game...");
+                    Console.WriteLine("Thank you for playing!");
+                    bool exitGame = true;
                     return;
                 default:
                     Console.WriteLine();
@@ -128,7 +131,7 @@ class Program
 
             NewDiscoveredRoomCheck(xPlayerCoordinate, yPlayerCoordinate);
 
-            MovementMenuBoot();
+            
         }
         else
         {
@@ -159,9 +162,14 @@ class Program
             Console.WriteLine($"New room discovered at coordinates: {newRoom}");
             BattleBoot(); // Battle occurs in new room
         }
+        else if (exitGame)
+        {
+            return; // Exit game if exitGame is true
+        }
         else
         {
-            Console.WriteLine($"You are already in the room at coordinates: {newRoom}");
+            Console.WriteLine($"You were already in the room at coordinates: {newRoom}");
+            MovementMenuBoot();
         }
     }
 
@@ -177,7 +185,7 @@ class Program
         if (!Array.Exists(options, option => option == userChoice))
         {
             Console.WriteLine("Invalid choice.");
-            return;
+            BattleBoot();
         }
 
         string enemyChoice = options[random.Next(options.Length)];
